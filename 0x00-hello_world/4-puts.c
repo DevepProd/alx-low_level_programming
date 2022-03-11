@@ -1,11 +1,11 @@
 #include <stdio.h>
 /**
- * main - prints the phrase Programming is like bullding a multilingual puzzle
- * Return: 0 if exited properly,non-zero otherwise
+ * main - Entry point 
+ *
+ * Return: 0 after printing the function
  */
-
-int main(void)
+int main (void)
 {
-    puts("\"Programming is like bullding a multilingual puzzle");
-           return (0);
+puts("\"Programming is like bullding a multilingual puzzle");
+return (0);
 }
