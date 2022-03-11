@@ -2,9 +2,10 @@
 /**
  *main - entry point
  *
- * Return: Always 0 (success)
+ *Return: Always 0 (success)
  */
 int main(void)
 {
-  return (0);
+puts("\"Programming is like bullding multilingual puzzle");
+return (0);
 }
