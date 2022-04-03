@@ -49,4 +49,3 @@ int _atoi(char *s)
 	else
 		return ((int) number);
 }
-
