@@ -1,4 +1,4 @@
-#i6nclude "main.h"
+#include "main.h"
 /**
  * _strncpy - This is my main
  * @dest: This is my dest
