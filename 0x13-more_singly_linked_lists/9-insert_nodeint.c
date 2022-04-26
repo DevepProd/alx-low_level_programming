@@ -1,51 +1,46 @@
 #include "lists.h"
 
 /**
-  * insert_nodeint_at_index - inserts a new node at a given position
-  * @head: list coming
-  * @idx: index of the list whete the new node should be added
-  * @n: integer to add to the structure
-  * Return: the address of the new node or NULL if it failed
-**/
-
+ * insert_nodeint_at_index - inserts a new node in a linked list,
+ * at a given position
+ * @head: pointer to the first node in the list
+ * @idx: index where the new node is added
+ * @n: data to insert in the new node
+ *
+ * Return: pointer to the new node, or NULL
+ */
 listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 {
-	unsigned int count = 0;
-	listint_t *new_node, *current_node = *head;
+    unsigned int i;
+    listint_t *new;
+    listint_t *temp = *head;
 
-	new_node = malloc(sizeof(listint_t));
+    new = malloc(sizeof(listint_t));
+    if (!new || !head)
+        return (NULL);
 
-	if (!new_node)
-	{
-		free(new_node);
-		return (NULL);
-	}
+    new->n = n;
+    new->next = NULL;
 
-	new_node->n = n;
-	new_node->next = NULL;
-	if (*head == NULL && idx > 0)
-	{
-		free(new_node);
-		return (NULL);
-	}
-	if (idx == 0)
-	{
-		new_node->next = *head;
-		*head = new_node;
-		return (new_node);
-	}
+    if (idx == 0)
+    {
+        new->next = *head;
+        *head = new;
+        return (new);
+    }
 
-	for (; count < idx - 1; count++)
-	{
-		current_node = current_node->next;
-		if (current_node == NULL && idx - count > 0)
-		{
-			free(new_node);
-			return (NULL);
-		}
-	}
-	new_node->next = current_node->next;
-	current_node->next = new_node;
-	return (new_node);
+    for (i = 0; temp && i < idx; i++)
+    {
+        if (i == idx - 1)
+        {
+            new->next = temp->next;
+            temp->next = new;
+            return (new);
+        }
+        else
+            temp = temp->next;
+    }
+
+    return (NULL);
 }
 
